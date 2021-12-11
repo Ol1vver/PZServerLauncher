@@ -69,7 +69,7 @@ pause >nul
 goto eof
 
 :readsettings
-for /f "delims=: tokens=1,2" %%G in (%settingsfile%) do set "%%G=%%H"
+for /f "delims=; tokens=1,2" %%G in (%settingsfile%) do set "%%G=%%H"
 goto eof
 
 :eof
