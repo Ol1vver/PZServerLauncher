@@ -1,17 +1,17 @@
 @echo off
 :setup
-set memmin=2048
-set memmax=2048
-set config=servertest
-set params=-Dzomboid.steam=1
-set title=Project Zomboid Server
-set path=%CD%
-set prevpath=%CD%
+set "memmin=2048"
+set "memmax=2048"
+set "config=servertest"
+set "params=-Dzomboid.steam=1"
+set "title=Project Zomboid Server"
+set "path=%CD%"
+set "prevpath=%CD%"
 
 title %title% - Setting up
 
-set settingsfile=%1
-if "%1"=="" set settingsfile=%CD%\pzsv_config.ini
+set "settingsfile=%1"
+if "%1"=="" set "settingsfile=%CD%\pzsv_config.ini"
 
 echo Loading config file '%settingsfile%'
 if exist %settingsfile% (
@@ -69,7 +69,7 @@ pause >nul
 goto eof
 
 :readsettings
-for /f "delims== tokens=1,2" %%G in (%settingsfile%) do set %%G=%%H
+for /f "delims=: tokens=1,2" %%G in (%settingsfile%) do set "%%G=%%H"
 goto eof
 
 :eof
